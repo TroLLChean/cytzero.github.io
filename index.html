@@ -16,10 +16,16 @@
             align-items: center;
             text-align: center;
         }
-        h1 {
-            color: red;
+        .logo {
             margin: 20px;
-            font-size: 2.5em;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .logo img {
+            width: 100%;
+            height: auto;
         }
         .container {
             width: 90%;
@@ -74,10 +80,43 @@
             max-width: 1000px;
             text-align: center;
         }
+        .disclaimer-table-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 1px solid #555;
+            border-radius: 8px;
+            overflow-y: auto;
+            max-height: 400px; /* Adjust height as needed */
+            background-color: #333;
+        }
+        .disclaimer-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #333;
+            color: #fff;
+        }
+        .disclaimer-table th, .disclaimer-table td {
+            padding: 15px;
+            border: 1px solid #555;
+            text-align: left;
+        }
+        .disclaimer-table th {
+            background-color: #444;
+            font-size: 1.2em;
+        }
+        .disclaimer-table tr:nth-child(even) {
+            background-color: #222;
+        }
+        .disclaimer-table tr:nth-child(odd) {
+            background-color: #333;
+        }
     </style>
 </head>
 <body>
-    <h1>Python Program Shop</h1>
+    <div class="logo">
+        <img src="https://www.01net.com/app/uploads/2023/06/hacker-troll-680x453.jpg" alt="Logo">
+    </div>
     <div class="container">
         <!-- Program 1 -->
         <div class="program">
@@ -88,14 +127,14 @@
         <!-- Program 2 -->
         <div class="program">
             <h2>DDoS Program</h2>
-            <p>This tool sends multiple simultaneous requests to a URL to test its load handling capabilities.</p>
+            <p>DDoS Program that can bring down any server in a few seconds</p>
             <button onclick="window.location.href='https://www.mediafire.com/file/8ct9ybfeb16ysla/DDoSTroLLChean.py/file'">Download</button>
         </div>
         <!-- Program 3 -->
         <div class="program">
             <h2>Cam Hackers</h2>
-            <p>Generates custom ASCII art for use in your projects.</p>
-            <button onclick="window.location.href='https://www.mediafire.com/file/8ct9ybfeb16ysla/DDoSTroLLChean.py/file'">Download</button>
+            <p>Python program that provides access to CCTV cameras</p>
+            <button onclick="window.location.href='https://www.mediafire.com/file/lndcodlypcnxi4i/CamHacker.py/file'">Download</button>
         </div>
     </div>
     <div class="ascii-art">
@@ -108,5 +147,4 @@
    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝     ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝
         </pre>
     </div>
-</body>
-</html>
+    
