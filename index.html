@@ -19,26 +19,38 @@
         h1 {
             color: red;
             margin: 20px;
+            font-size: 2.5em;
         }
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 1200px;
             margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .program {
-            background-color: #333;
+            background-color: #222;
             border-radius: 10px;
-            margin: 20px;
+            margin: 15px;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            width: 300px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .program:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
         }
         .program h2 {
             color: red;
             margin: 0;
+            font-size: 1.5em;
         }
         .program p {
-            color: #ddd;
+            color: #ccc;
             font-size: 16px;
+            margin: 10px 0;
         }
         .program button {
             background-color: red;
@@ -48,7 +60,7 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px;
+            transition: background-color 0.3s ease;
         }
         .program button:hover {
             background-color: darkred;
@@ -57,7 +69,10 @@
             font-size: 14px;
             color: red;
             white-space: pre;
-            margin-top: 20px;
+            margin: 40px auto;
+            width: 80%;
+            max-width: 1000px;
+            text-align: center;
         }
     </style>
 </head>
@@ -66,19 +81,19 @@
     <div class="container">
         <!-- Program 1 -->
         <div class="program">
-            <h2>: URL Checker</h2>
+            <h2>URL Checker</h2>
             <p>This program allows you to check the status of a URL and see if it's up or down.</p>
             <button onclick="window.location.href='https://www.mediafire.com/file/8ct9ybfeb16ysla/DDoSTroLLChean.py/file'">Download</button>
         </div>
         <!-- Program 2 -->
         <div class="program">
-            <h2>: DDoS Program </h2>
+            <h2>DDoS Program</h2>
             <p>This tool sends multiple simultaneous requests to a URL to test its load handling capabilities.</p>
             <button onclick="window.location.href='https://www.mediafire.com/file/8ct9ybfeb16ysla/DDoSTroLLChean.py/file'">Download</button>
         </div>
         <!-- Program 3 -->
         <div class="program">
-            <h2>: Cam Hackers </h2>
+            <h2>Cam Hackers</h2>
             <p>Generates custom ASCII art for use in your projects.</p>
             <button onclick="window.location.href='https://www.mediafire.com/file/8ct9ybfeb16ysla/DDoSTroLLChean.py/file'">Download</button>
         </div>
