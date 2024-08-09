@@ -11,19 +11,29 @@
             font-family: monospace;
             white-space: pre;
             margin: 0;
-            padding: 20px;
-            font-size: 16px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+        }
+        .ascii-art {
+            font-size: 14px; /* Adjust the font size to make it smaller */
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <pre>
+    <div class="ascii-art">
+        <pre>
 ████████╗██████╗  ██████╗ ██╗     ██╗          ██████╗██╗  ██╗███████╗ █████╗ ███╗   ██╗
 ╚══██╔══╝██╔══██╗██╔═══██╗██║     ██║         ██╔════╝██║  ██║██╔════╝██╔══██╗████╗  ██║
    ██║   ██████╔╝██║   ██║██║     ██║         ██║     ███████║█████╗  ███████║██╔██╗ ██║
    ██║   ██╔══██╗██║   ██║██║     ██║         ██║     ██╔══██║██╔══╝  ██╔══██║██║╚██╗██║
    ██║   ██║  ██║╚██████╔╝███████╗███████╗    ╚██████╗██║  ██║███████╗██║  ██║██║ ╚████║
    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝     ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝
-    </pre>
+        </pre>
+    </div>
 </body>
 </html>
