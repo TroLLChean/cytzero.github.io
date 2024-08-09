@@ -3,28 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Art</title>
+    <title>Python Program Shop</title>
     <style>
         body {
             background-color: black;
-            color: red;
-            font-family: monospace;
-            white-space: pre;
+            color: white;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden;
+            text-align: center;
+        }
+        h1 {
+            color: red;
+            margin: 20px;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .program {
+            background-color: #333;
+            border-radius: 10px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        .program h2 {
+            color: red;
+            margin: 0;
+        }
+        .program p {
+            color: #ddd;
+            font-size: 16px;
+        }
+        .program button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .program button:hover {
+            background-color: darkred;
         }
         .ascii-art {
-            font-size: 14px; /* Adjust the font size to make it smaller */
-            text-align: center;
+            font-size: 14px;
+            color: red;
+            white-space: pre;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <h1>Python Program Shop</h1>
+    <div class="container">
+        <!-- Program 1 -->
+        <div class="program">
+            <h2>Program 1: URL Checker</h2>
+            <p>This program allows you to check the status of a URL and see if it's up or down.</p>
+            <button onclick="window.location.href='url-checker.py'">Download</button>
+        </div>
+        <!-- Program 2 -->
+        <div class="program">
+            <h2>Program 2: Multi-Request Sender</h2>
+            <p>This tool sends multiple simultaneous requests to a URL to test its load handling capabilities.</p>
+            <button onclick="window.location.href='multi-request-sender.py'">Download</button>
+        </div>
+        <!-- Program 3 -->
+        <div class="program">
+            <h2>Program 3: ASCII Art Generator</h2>
+            <p>Generates custom ASCII art for use in your projects.</p>
+            <button onclick="window.location.href='ascii-art-generator.py'">Download</button>
+        </div>
+    </div>
     <div class="ascii-art">
         <pre>
 ████████╗██████╗  ██████╗ ██╗     ██╗          ██████╗██╗  ██╗███████╗ █████╗ ███╗   ██╗
