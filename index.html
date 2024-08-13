@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Program Shop</title>
+    <title>DDoS Service Shop</title>
     <style>
         body {
-            background-color: black;
+            background-color: black; /* Set background color to black */
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -25,7 +25,8 @@
         }
         .logo img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
         }
         .container {
             width: 90%;
@@ -35,8 +36,8 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .program {
-            background-color: #222;
+        .service {
+            background-color: rgba(34, 34, 34, 0.8); /* Semi-transparent background */
             border-radius: 10px;
             margin: 15px;
             padding: 20px;
@@ -45,21 +46,21 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .program:hover {
+        .service:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
         }
-        .program h2 {
+        .service h2 {
             color: red;
             margin: 0;
             font-size: 1.5em;
         }
-        .program p {
+        .service p {
             color: #ccc;
             font-size: 16px;
             margin: 10px 0;
         }
-        .program button {
+        .service button {
             background-color: red;
             color: white;
             border: none;
@@ -69,99 +70,128 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .program button:hover {
+        .service button:hover {
             background-color: darkred;
         }
-        .ascii-art {
-            font-size: 14px;
-            color: red;
-            white-space: pre;
-            margin: 20px auto;
-            width: 90%;
-            max-width: 1000px;
-            text-align: center;
-        }
         @media (max-width: 600px) {
-            .ascii-art {
-                font-size: 10px; /* Reduce font size on small screens */
-            }
-            .program {
+            .service {
                 padding: 15px;
                 width: 100%; /* Full width on small screens */
             }
-            .program h2 {
+            .service h2 {
                 font-size: 1.2em;
             }
-            .program p, .program button {
+            .service p, .service button {
                 font-size: 14px;
             }
         }
-        .disclaimer-table-container {
-            width: 90%;
+        .details {
+            display: none;
+            background-color: rgba(34, 34, 34, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(100% - 40px);
             max-width: 800px;
             margin: 20px auto;
-            border: 1px solid #555;
-            border-radius: 8px;
-            overflow-y: auto;
-            max-height: 400px; /* Adjust height as needed */
-            background-color: #333;
-        }
-        .disclaimer-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #333;
-            color: #fff;
-        }
-        .disclaimer-table th, .disclaimer-table td {
-            padding: 15px;
-            border: 1px solid #555;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
             text-align: left;
         }
-        .disclaimer-table th {
-            background-color: #444;
+        .details h1 {
+            color: red;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .details p {
             font-size: 1.2em;
+            color: #ccc;
         }
-        .disclaimer-table tr:nth-child(even) {
-            background-color: #222;
+        .contact {
+            display: none;
+            background-color: rgba(34, 34, 34, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(100% - 40px);
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            text-align: left;
         }
-        .disclaimer-table tr:nth-child(odd) {
-            background-color: #333;
+        .contact h1 {
+            color: red;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .contact p {
+            font-size: 1.2em;
+            color: #ccc;
+            margin: 10px 0;
         }
     </style>
+    <script>
+        function showDetails(service) {
+            document.querySelectorAll('.details').forEach(function(detail) {
+                detail.style.display = 'none';
+            });
+            document.getElementById(service).style.display = 'block';
+        }
+
+        function showContact() {
+            document.querySelectorAll('.details').forEach(function(detail) {
+                detail.style.display = 'none';
+            });
+            document.querySelector('.contact').style.display = 'block';
+        }
+    </script>
 </head>
 <body>
     <div class="logo">
-        <img src="https://www.01net.com/app/uploads/2023/06/hacker-troll-680x453.jpg" alt="Logo">
+        <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*_DuOLsA3tsjRdDMn.jpg" alt="Logo">
     </div>
     <div class="container">
-        <!-- Program 1 -->
-        <div class="program">
-            <h2>URL Checker</h2>
-            <p>This program allows you to check the status of a URL and see if it's up or down.</p>
-            <button onclick="window.location.href='https://www.mediafire.com/file/8ct9ybfeb16ysla/DDoSTroLLChean.py/file'">Download</button>
+        <!-- Service 1 -->
+        <div class="service">
+            <h2>Basic DDoS Attack</h2>
+            <p>Launch a basic DDoS attack on a server with limited resources. Ideal for small-scale targets.</p>
+            <button onclick="showDetails('ddos-basic')">Order Now</button>
         </div>
-        <!-- Program 2 -->
-        <div class="program">
-            <h2>DDoS Program</h2>
-            <p>DDoS Program that can bring down any server in a few seconds</p>
-            <button onclick="window.location.href='https://www.mediafire.com/file/8ct9ybfeb16ysla/DDoSTroLLChean.py/file'">Download</button>
+        <!-- Service 2 -->
+        <div class="service">
+            <h2>Advanced DDoS Attack</h2>
+            <p>Launch a powerful DDoS attack capable of bringing down larger and more resilient servers.</p>
+            <button onclick="showDetails('ddos-advanced')">Order Now</button>
         </div>
-        <!-- Program 3 -->
-        <div class="program">
-            <h2>Cam Hackers</h2>
-            <p>Python program that provides access to CCTV cameras</p>
-            <button onclick="window.location.href='https://www.mediafire.com/file/lndcodlypcnxi4i/CamHacker.py/file'">Download</button>
+        <!-- Service 3 -->
+        <div class="service">
+            <h2>Custom DDoS Attack</h2>
+            <p>Design a customized DDoS attack tailored to your specific needs and target.</p>
+            <button onclick="showDetails('ddos-custom')">Order Now</button>
         </div>
     </div>
-    <div class="ascii-art">
-        <pre>
-████████╗██████╗  ██████╗ ██╗     ██╗          ██████╗██╗  ██╗███████╗ █████╗ ███╗   ██╗
-╚══██╔══╝██╔══██╗██╔═══██╗██║     ██║         ██╔════╝██║  ██║██╔════╝██╔══██╗████╗  ██║
-   ██║   ██████╔╝██║   ██║██║     ██║         ██║     ███████║█████╗  ███████║██╔██╗ ██║
-   ██║   ██╔══██╗██║   ██║██║     ██║         ██║     ██╔══██║██╔══╝  ██╔══██║██║╚██╗██║
-   ██║   ██║  ██║╚██████╔╝███████╗███████╗    ╚██████╗██║  ██║███████╗██║  ██║██║ ╚████║
-   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝     ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝
-        </pre>
+
+    <!-- Details Sections -->
+    <div id="ddos-basic" class="details">
+        <h1>DDoS Basic Service</h1>
+        <p>This service allows you to launch a basic DDoS attack on a server with limited resources. It is ideal for small-scale targets and is perfect for testing or small disruptions. This package is best suited for those who need to affect smaller servers or services.</p>
+    </div>
+
+    <div id="ddos-advanced" class="details">
+        <h1>DDoS Advanced Service</h1>
+        <p>This advanced DDoS attack service is designed for larger and more resilient servers. It utilizes more resources and techniques to bring down robust targets effectively. This service is suitable for disrupting large-scale systems and services.</p>
+    </div>
+
+    <div id="ddos-custom" class="details">
+        <h1>Custom DDoS Service</h1>
+        <p>Our custom DDoS service allows you to design a tailored attack according to your specific needs and requirements. Whether you need a specific type of attack or a particular scale, we can create a solution that fits your demands perfectly.</p>
+    </div>
+
+    <!-- Contact Us Section -->
+    <button onclick="showContact()" style="background-color: red; color: white; border: none; border-radius: 5px; padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 20px;">Contact Us</button>
+    
+    <div class="contact">
+        <h1>Contact Us</h1>
+        <p>Email: <a href="mailto:darkproject@yahoo.com" style="color: red;">darkproject@yahoo.com</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/trollcehanofficial" style="color: rgb(255, 0, 234);">@trollcehanofficial</a></p>
+        <p>Telegram: <a href="https://t.me/TroLLCheanOfficial" style="color: rgb(55, 0, 255);">@TroLLChean</a></p>
     </div>
 </body>
 </html>
