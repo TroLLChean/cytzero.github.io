@@ -1,107 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacked By CytZero</title>
-    <link rel="icon" href="https://logowik.com/content/uploads/images/capita-snowboards-skull3070.logowik.com.webp" type="image/webp">
+    <title>CyTZero Hackers Forum</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
         body {
-            background-color: #000000; /* Fundal negru */
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2c2c2c, #000);
             margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Ascunde overflow-ul pentru bara animată */
+            padding: 0;
+            color: #f4f4f4;
         }
 
-        h1 {
-            color: red;
-            font-size: 1.5em; /* Dimensiune mai mică */
-            opacity: 0;
-            animation: fadeInOut 4s infinite;
-            margin-bottom: 20px; /* Spațiu între titlu și bara LED */
-        }
-
-        @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        .led-bar {
+        header {
             width: 100%;
-            max-width: 400px;
-            height: 10px;
-            background: linear-gradient(to right, #808080, #cccccc);
+            padding: 20px 0;
+            background: linear-gradient(135deg, #ff4d4d, #d90000);
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            border-bottom: 2px solid #444;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 0 0 10px #ff4d4d;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d, 0 0 30px #d90000, 0 0 40px #d90000;
+            }
+            to {
+                text-shadow: 0 0 20px #ff4d4d, 0 0 30px #d90000, 0 0 40px #ff4d4d, 0 0 50px #d90000;
+            }
+        }
+
+        .forum-container {
+            display: flex;
+            margin-top: 80px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 80px auto;
+            background-color: #282828;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 12px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .sidebar h2 {
+            font-size: 1.5em;
+            color: #ff4d4d;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff4d4d;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #ff4d4d;
+            transform: translateX(5px);
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .category-description {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #353535;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .category-description h2 {
+            margin-top: 0;
+            color: #ff4d4d;
+            text-shadow: 0 0 5px #ff4d4d;
+        }
+
+        .category-description p {
+            color: #ddd;
+        }
+
+        .thread {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #444;
+            border-radius: 12px;
+            background-color: #353535;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .thread:hover {
+            transform: scale(1.02);
+            background-color: #3d3d3d;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .thread h2 {
+            margin: 0 0 10px;
+            color: #ff4d4d;
+            text-shadow: 0 0 5px #ff4d4d;
+        }
+
+        .thread p {
+            margin: 0;
+            color: #ddd;
+        }
+
+        .thread-footer {
+            margin-top: 10px;
+            text-align: right;
+            font-size: 0.9em;
+            color: #aaa;
+            text-shadow: 0 0 3px #000;
+        }
+
+        .thread-footer .admin {
+            color: #ffd700;
+            text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+            font-weight: bold;
+        }
+
+        .reply {
+            margin-left: 20px;
+            padding: 15px;
+            border-left: 4px solid #ff4d4d;
+            background-color: #4c4c4c;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .reply:hover {
+            transform: translateX(5px);
+            background-color: #555;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .new-thread {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .new-thread a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff4d4d, #d90000);
             border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-            margin-bottom: 10px; 
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .text-below-bar {
-            color: #cccccc;
-            font-size: 1em; 
+        .new-thread a:hover {
+            background: linear-gradient(135deg, #d90000, #ff4d4d);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .user-panel {
+            width: 250px;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 12px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+            margin-left: 20px;
+        }
+
+        .user-panel h2 {
+            font-size: 1.5em;
+            color: #ff4d4d;
             text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff4d4d;
+            padding-bottom: 10px;
+        }
+
+        .user-panel .user {
             margin-bottom: 10px;
-        }
-
-        .led-text {
-            color: #FFA500; /* Portocaliu LED */
-            font-size: 1.2em;
-            text-align: center;
-            font-weight: bold;
-            text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500; /* Efect LED */
-        }
-
-        .scrolling-bar-wrapper {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            overflow: hidden; /* Ascunde overflow-ul */
-        }
-
-        .scrolling-bar {
+            padding: 10px;
+            border-radius: 8px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            width: 200%; /* Dublăm lățimea pentru animație */
-            height: 40px;
-            background: #333;
-            color: #FFF;
-            font-size: 1em;
-            font-weight: bold;
-            white-space: nowrap; /* Asigură că textul nu se împachetează */
-            animation: scroll-left 10s linear infinite;
+            background-color: #353535;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
         }
 
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+        .user-panel .user.online {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .user-panel .user.offline {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .user-panel .user.admin {
+            background-color: #ffd700;
+            color: #000;
+            font-weight: bold;
+            text-shadow: 0 0 5px #ffd700;
+        }
+
+        .user-panel .user span {
+            flex-grow: 1;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .user-panel .user .status {
+            margin-left: 10px;
+            font-size: 0.8em;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <h1>Hacked By CyTZero Team Hakers</h1>
-    <div class="led-bar"></div>
-    <p class="text-below-bar">Acest website a fost hekuit de catre echipa de hackeri CyTZero</p>
-    <p class="led-text">@CyTZero</p>
-    
-    <div class="scrolling-bar-wrapper">
-        <div class="scrolling-bar">Website Fuked By CyTZero</div>
+    <header>
+        <h1>CyTZero Hackers Forum</h1>
+    </header>
+    <div class="forum-container">
+        <div class="sidebar">
+            <h2>Categorii</h2>
+            <ul>
+                <li><a href="#ddos"><i class="fas fa-cloud-showers-heavy"></i>DDoS</a></li>
+                <li><a href="#sql"><i class="fas fa-database"></i>SQL Injection</a></li>
+                <li><a href="#ethical-hacking"><i class="fas fa-user-shield"></i>Hacking Etic</a></li>
+                <li><a href="#resurse"><i class="fas fa-book"></i>Resurse</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="new-thread">
+                <a href="#"><i class="fas fa-plus-circle"></i> Creează un nou thread</a>
+            </div>
+            <div id="ddos" class="category-description">
+                <h2>DDoS Attack</h2>
+                <p>Atacurile Distributed Denial of Service (DDoS) sunt concepute pentru a face site-uri web și servicii online inaccesibile pentru utilizatorii legitimi. Aceste atacuri pot fi realizate prin diverse metode, cum ar fi trimiterea unui număr mare de cereri sau exploatarea unor vulnerabilități pentru a consuma resursele țintă.</p>
+                <p>Tehnici comune includ:
+                    <ul>
+                        <li><strong>Flooding:</strong> Trimiterea unui număr imens de cereri pentru a umple lățimea de bandă a rețelei țintă.</li>
+                        <li><strong>SYN Flood:</strong> Exploatarea procesului de handshaking TCP pentru a provoca epuizarea resurselor serverului.</li>
+                        <li><strong>UDP Flood:</strong> Trimiterea unor pachete UDP în cantități mari pentru a suprasolicita rețeaua.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div id="sql" class="category-description">
+                <h2>SQL Injection</h2>
+                <p>SQL Injection (SQLi) este o vulnerabilitate de securitate care apare atunci când un atacator poate injecta cod SQL malițios într-o interogare SQL. Acest lucru poate duce la accesul neautorizat la datele din baza de date, manipularea acestora sau chiar compromiterea întregului sistem.</p>
+                <p>Exemple de tehnici SQL Injection includ:
+                    <ul>
+                        <li><strong>Unioni:</strong> Utilizarea operatorului UNION pentru a combina rezultatele a două sau mai multe interogări SQL și a accesa date neautorizate.</li>
+                        <li><strong>Blind SQLi:</strong> Extrage informații prin observarea reacțiilor serverului, fără a obține direct datele.</li>
+                        <li><strong>Time-based SQLi:</strong> Folosește funcții de întârziere pentru a determina existența unor date sau vulnerabilități.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div id="ethical-hacking" class="category-description">
+                <h2>Hacking Etic</h2>
+                <p>Hacking-ul etic se referă la practicile de evaluare a securității sistemelor și rețelelor într-un mod legal și responsabil. Hackerii etici sunt angajați pentru a identifica și a corecta vulnerabilitățile înainte ca acestea să fie exploatate de atacatori malițioși.</p>
+                <p>Principalele tehnici de hacking etic includ:
+                    <ul>
+                        <li><strong>Penetration Testing:</strong> Evaluarea securității prin simularea unor atacuri reale pentru a identifica și a remedia vulnerabilitățile.</li>
+                        <li><strong>Vulnerability Assessment:</strong> Analiza sistemelor pentru a găsi și a evalua vulnerabilitățile cunoscute.</li>
+                        <li><strong>Social Engineering:</strong> Testarea nivelului de securitate prin manipularea oamenilor pentru a obține informații sensibile.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div id="resurse" class="category-description">
+                <h2>Resurse</h2>
+                <p>Aici vei găsi resurse utile pentru învățarea hacking-ului etic și securității cibernetice, inclusiv cărți, instrumente și site-uri web recomandate.</p>
+                <div class="resource-item">
+                    <h3><a href="https://www.example.com" target="_blank">Ghid complet de Hacking Etic</a></h3>
+                    <p>Un ghid detaliat despre principiile și tehnicile hacking-ului etic. Include tutoriale și resurse suplimentare pentru aprofundarea cunoștințelor.</p>
+                </div>
+                <div class="resource-item">
+                    <h3><a href="https://www.example2.com" target="_blank">Toolset pentru Testarea Securității</a></h3>
+                    <p>O listă de instrumente esențiale pentru testarea securității și evaluarea vulnerabilităților. Include atât software gratuit, cât și plătit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="user-panel">
+            <h2>Utilizatori Online</h2>
+            <div class="user online">
+                <span>ShadowHunter</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>NightOwl</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>CyberWarrior</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>HexMaster</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>DarkPhoenix</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>Vortex</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>TechnoMage</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>CodeBreaker</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>QuantumLeap</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>GhostWalker</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>ByteSmasher</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>DarkKnight</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>CryptoNinja</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>PhantomCoder</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>RedSpecter</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>ZeroByte</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>NetGuardian</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>ShadowAgent</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user online">
+                <span>PixelVortex</span>
+                <span class="status">Online</span>
+            </div>
+            <div class="user offline">
+                <span>CipherKing</span>
+                <span class="status">Offline</span>
+            </div>
+            <div class="user admin">
+                <span>Admin</span>
+                <span class="status">Online</span>
+            </div>
+        </div>
     </div>
 </body>
 </html>
