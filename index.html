@@ -90,6 +90,7 @@
             display: flex;
             align-items: center;
             transition: color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
         }
 
         .sidebar ul li a:hover {
@@ -182,27 +183,6 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
         }
 
-        .new-thread {
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .new-thread a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #ff4d4d, #d90000);
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .new-thread a:hover {
-            background: linear-gradient(135deg, #d90000, #ff4d4d);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.5);
-        }
-
         .user-panel {
             width: 250px;
             padding: 20px;
@@ -230,35 +210,24 @@
             background-color: #353535;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s ease;
-        }
-
-        .user-panel .user.online {
-            background-color: #4caf50;
             color: #fff;
         }
 
-        .user-panel .user.offline {
-            background-color: #f44336;
-            color: #fff;
+        .user-panel .user.vip {
+            color: #ff0000; /* Text color red */
+            background-color: #222; /* Darker background color */
+            box-shadow: 0 0 10px #ff0000; /* Red glowing effect */
+            border-left: 4px solid #ff0000; /* Red left border */
         }
 
         .user-panel .user.admin {
-            background-color: #ffd700;
-            color: #000;
-            font-weight: bold;
-            text-shadow: 0 0 5px #ffd700;
+            color: #ffd700;
+            background-color: #444;
+            box-shadow: 0 0 10px #ffd700;
         }
 
-        .user-panel .user span {
-            flex-grow: 1;
-            text-align: left;
-            padding-left: 10px;
-        }
-
-        .user-panel .user .status {
-            margin-left: 10px;
-            font-size: 0.8em;
-            font-style: italic;
+        .user-panel .user i {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -266,156 +235,117 @@
     <header>
         <h1>CyTZero Hackers Forum</h1>
     </header>
+
     <div class="forum-container">
         <div class="sidebar">
-            <h2>Categorii</h2>
+            <h2>Categorii Forum</h2>
             <ul>
-                <li><a href="#ddos"><i class="fas fa-cloud-showers-heavy"></i>DDoS</a></li>
-                <li><a href="#sql"><i class="fas fa-database"></i>SQL Injection</a></li>
-                <li><a href="#ethical-hacking"><i class="fas fa-user-shield"></i>Hacking Etic</a></li>
-                <li><a href="#resurse"><i class="fas fa-book"></i>Resurse</a></li>
+                <li><a href="#" onclick="showContent('programare')"><i class="fas fa-code"></i>Programare</a></li>
+                <li><a href="#" onclick="showContent('exploatari')"><i class="fas fa-bug"></i>Exploitări</a></li>
+                <li><a href="#" onclick="showContent('securitate')"><i class="fas fa-shield-alt"></i>Securitate</a></li>
+                <li><a href="#" onclick="showContent('criptografie')"><i class="fas fa-lock"></i>Criptografie</a></li>
+                <li><a href="#" onclick="showContent('retele')"><i class="fas fa-network-wired"></i>Rețele</a></li>
             </ul>
         </div>
+
         <div class="main-content">
-            <div class="new-thread">
-                <a href="#"><i class="fas fa-plus-circle"></i> Creează un nou thread</a>
-            </div>
-            <div id="ddos" class="category-description">
-                <h2>DDoS Attack</h2>
-                <p>Atacurile Distributed Denial of Service (DDoS) sunt concepute pentru a face site-uri web și servicii online inaccesibile pentru utilizatorii legitimi. Aceste atacuri pot fi realizate prin diverse metode, cum ar fi trimiterea unui număr mare de cereri sau exploatarea unor vulnerabilități pentru a consuma resursele țintă.</p>
-                <p>Tehnici comune includ:
-                    <ul>
-                        <li><strong>Flooding:</strong> Trimiterea unui număr imens de cereri pentru a umple lățimea de bandă a rețelei țintă.</li>
-                        <li><strong>SYN Flood:</strong> Exploatarea procesului de handshaking TCP pentru a provoca epuizarea resurselor serverului.</li>
-                        <li><strong>UDP Flood:</strong> Trimiterea unor pachete UDP în cantități mari pentru a suprasolicita rețeaua.</li>
-                    </ul>
-                </p>
-            </div>
-
-            <div id="sql" class="category-description">
-                <h2>SQL Injection</h2>
-                <p>SQL Injection (SQLi) este o vulnerabilitate de securitate care apare atunci când un atacator poate injecta cod SQL malițios într-o interogare SQL. Acest lucru poate duce la accesul neautorizat la datele din baza de date, manipularea acestora sau chiar compromiterea întregului sistem.</p>
-                <p>Exemple de tehnici SQL Injection includ:
-                    <ul>
-                        <li><strong>Unioni:</strong> Utilizarea operatorului UNION pentru a combina rezultatele a două sau mai multe interogări SQL și a accesa date neautorizate.</li>
-                        <li><strong>Blind SQLi:</strong> Extrage informații prin observarea reacțiilor serverului, fără a obține direct datele.</li>
-                        <li><strong>Time-based SQLi:</strong> Folosește funcții de întârziere pentru a determina existența unor date sau vulnerabilități.</li>
-                    </ul>
-                </p>
-            </div>
-
-            <div id="ethical-hacking" class="category-description">
-                <h2>Hacking Etic</h2>
-                <p>Hacking-ul etic se referă la practicile de evaluare a securității sistemelor și rețelelor într-un mod legal și responsabil. Hackerii etici sunt angajați pentru a identifica și a corecta vulnerabilitățile înainte ca acestea să fie exploatate de atacatori malițioși.</p>
-                <p>Principalele tehnici de hacking etic includ:
-                    <ul>
-                        <li><strong>Penetration Testing:</strong> Evaluarea securității prin simularea unor atacuri reale pentru a identifica și a remedia vulnerabilitățile.</li>
-                        <li><strong>Vulnerability Assessment:</strong> Analiza sistemelor pentru a găsi și a evalua vulnerabilitățile cunoscute.</li>
-                        <li><strong>Social Engineering:</strong> Testarea nivelului de securitate prin manipularea oamenilor pentru a obține informații sensibile.</li>
-                    </ul>
-                </p>
-            </div>
-
-            <div id="resurse" class="category-description">
-                <h2>Resurse</h2>
-                <p>Aici vei găsi resurse utile pentru învățarea hacking-ului etic și securității cibernetice, inclusiv cărți, instrumente și site-uri web recomandate.</p>
-                <div class="resource-item">
-                    <h3><a href="https://www.example.com" target="_blank">Ghid complet de Hacking Etic</a></h3>
-                    <p>Un ghid detaliat despre principiile și tehnicile hacking-ului etic. Include tutoriale și resurse suplimentare pentru aprofundarea cunoștințelor.</p>
-                </div>
-                <div class="resource-item">
-                    <h3><a href="https://www.example2.com" target="_blank">Toolset pentru Testarea Securității</a></h3>
-                    <p>O listă de instrumente esențiale pentru testarea securității și evaluarea vulnerabilităților. Include atât software gratuit, cât și plătit.</p>
-                </div>
+            <div id="section-content" class="category-description">
+                <p>Selectați o categorie din meniul din stânga pentru a vedea detalii.</p>
             </div>
         </div>
+
         <div class="user-panel">
-            <h2>Utilizatori Online</h2>
-            <div class="user online">
-                <span>ShadowHunter</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>NightOwl</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>CyberWarrior</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>HexMaster</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>DarkPhoenix</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>Vortex</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>TechnoMage</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>CodeBreaker</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>QuantumLeap</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>GhostWalker</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>ByteSmasher</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>DarkKnight</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>CryptoNinja</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>PhantomCoder</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>RedSpecter</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>ZeroByte</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>NetGuardian</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>ShadowAgent</span>
-                <span class="status">Offline</span>
-            </div>
-            <div class="user online">
-                <span>PixelVortex</span>
-                <span class="status">Online</span>
-            </div>
-            <div class="user offline">
-                <span>CipherKing</span>
-                <span class="status">Offline</span>
-            </div>
+            <h2>Utilizatori Activi</h2>
             <div class="user admin">
-                <span>Admin</span>
-                <span class="status">Online</span>
+                <i class="fas fa-user-shield"></i>Admin
+            </div>
+            <div class="user vip">
+                <i class="fas fa-user"></i>Barbutar MVP
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>DarkVector
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>ShadowWalker
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>CryptoKnight
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>NetPhantom
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>RedHawk
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>BlackTiger
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>CyberGhost
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>WhiteHat
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>PhantomFox
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>ZeroByte
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>CodeWarrior
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>SilentHunter
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>DarkShadow
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>GhostRider
             </div>
         </div>
     </div>
+
+    <script>
+        function showContent(section) {
+            let content = document.getElementById('section-content');
+
+            switch(section) {
+                case 'programare':
+                    content.innerHTML = `
+                        <h2>Programare</h2>
+                        <p>Această secțiune este dedicată discuțiilor despre programare. Aici puteți împărtăși cunoștințe despre limbaje de programare, framework-uri, best practices și alte subiecte legate de dezvoltarea software.</p>
+                    `;
+                    break;
+                case 'exploatari':
+                    content.innerHTML = `
+                        <h2>Exploatări</h2>
+                        <p>Discuții despre diverse vulnerabilități și exploatări. Împărtășiți sau aflați despre ultimele metode de exploatare a vulnerabilităților în software și sisteme.</p>
+                    `;
+                    break;
+                case 'securitate':
+                    content.innerHTML = `
+                        <h2>Securitate</h2>
+                        <p>Această secțiune acoperă subiecte legate de securitatea cibernetică, inclusiv măsuri de prevenire, detectare și răspuns la atacuri cibernetice.</p>
+                    `;
+                    break;
+                case 'criptografie':
+                    content.innerHTML = `
+                        <h2>Criptografie</h2>
+                        <p>Secțiunea de criptografie este dedicată studiului și discuțiilor despre metodele de criptare și decriptare a informațiilor, algoritmi criptografici, și alte tehnici de protejare a datelor.</p>
+                    `;
+                    break;
+                case 'retele':
+                    content.innerHTML = `
+                        <h2>Rețele</h2>
+                        <p>Discuții despre rețele de calculatoare, protocoale de rețea, securitate în rețea și alte aspecte tehnice legate de administrarea și funcționarea rețelelor.</p>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = `<p>Selectați o categorie din meniul din stânga pentru a vedea detalii.</p>`;
+            }
+        }
+    </script>
 </body>
 </html>
