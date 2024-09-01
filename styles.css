@@ -148,8 +148,8 @@ header h1 {
 }
 
 .user:hover {
-    background: linear-gradient(135deg, #ff4d4d, #d90000);
-    box-shadow: 0 0 20px rgba(255, 77, 77, 0.8);
+    background: linear-gradient(135deg, #7d19f0, #08db3d);
+    box-shadow: 0 0 20px rgba(238, 215, 10, 0.8);
 }
 
 .user i {
@@ -167,7 +167,7 @@ header h1 {
 }
 
 .user-panel .user.admin {
-    background: linear-gradient(135deg, #ff4d4d, #d90000);
+    background: linear-gradient(135deg, #7cec20, #1979f7);
 }
 
 .user-panel .user.vip {
