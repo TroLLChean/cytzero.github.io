@@ -1,59 +1,228 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>503 Bad Request</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        .container {
-            text-align: center;
-        }
-        .message {
-            color: #FF0000;
-            font-size: 4rem;
-            font-weight: bold;
-            white-space: nowrap;
-            border-right: 2px solid #FF0000;
-            display: inline-block;
-            overflow: hidden;
-            width: 0;
-            animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
-        }
-        .additional-text {
-            color: #FFFFFF;
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            white-space: nowrap;
-            animation: typing 6s steps(40, end) 4s normal both;
-            overflow: hidden;
-            border-right: 2px solid #FFFFFF;
-            display: inline-block;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #FF0000; }
-        }
-    </style>
+    <title>CyTZero Hackers Forum</title>
+    
+    <!-- Link către Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Link către Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Link către fișierul CSS extern -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="message">503 Bad Request</div>
-        <div class="additional-text">Vă rugăm să reveniți mai târziu</div>
+    <header>
+        <h1>CyTZero Hackers Forum</h1>
+    </header>
+
+    <div class="forum-container">
+        <div class="sidebar">
+            <h2>Categorii Forum</h2>
+            <ul>
+                <li><a href="#" onclick="showContent('programare')"><i class="fas fa-code"></i>Programare</a></li>
+                <li><a href="#" onclick="showContent('exploatari')"><i class="fas fa-bug"></i>Exploitări</a></li>
+                <li><a href="#" onclick="showContent('securitate')"><i class="fas fa-shield-alt"></i>Securitate</a></li>
+                <li><a href="#" onclick="showContent('criptografie')"><i class="fas fa-lock"></i>Criptografie</a></li>
+                <li><a href="#" onclick="showContent('retele')"><i class="fas fa-network-wired"></i>Rețele</a></li>
+                <li><a href="#" onclick="showContent('inteligenta-artificiala')"><i class="fas fa-robot"></i>Inteligență Artificială</a></li>
+                <li><a href="#" onclick="showContent('hacking-etica')"><i class="fas fa-hat-wizard"></i>Hacking Etic</a></li>
+                <li><a href="#" onclick="showContent('anonimat')"><i class="fas fa-user-secret"></i>Anonimat Online</a></li>
+                <li><a href="#" onclick="showContent('criptomonede')"><i class="fas fa-coins"></i>Criptomonede</a></li>
+                <li><a href="#" onclick="showContent('dark-web')"><i class="fas fa-mask"></i>Dark Web</a></li>
+                <li><a href="#" onclick="showContent('engineering-revers')"><i class="fas fa-undo-alt"></i>Engineering Revers</a></li>
+                <li><a href="#" onclick="showContent('social-engineering')"><i class="fas fa-users-cog"></i>Social Engineering</a></li>
+                <li><a href="#" onclick="showContent('blockchain')"><i class="fas fa-link"></i>Blockchain</a></li>
+                <li><a href="#" onclick="showContent('osint')"><i class="fas fa-search"></i>OSINT</a></li>
+                <li><a href="#" onclick="showContent('hardware-hacking')"><i class="fas fa-microchip"></i>Hardware Hacking</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div id="section-content" class="category-description">
+                <p>Selectați o categorie din meniul din stânga pentru a vedea detalii.</p>
+            </div>
+        </div>
+
+        <div class="user-panel">
+            <h2>Utilizatori Activi</h2>
+            <div class="user admin">
+                <i class="fas fa-user-shield"></i>Admin
+            </div>
+            <div class="user MVP">
+                <i class="fas fa-user"></i>Barbutar MVP
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>DarkVector
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>ShadowWalker
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>CryptoKnight
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>NetPhantom
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>RedHawk
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>BlackTiger
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>CyberGhost
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>WhiteHat
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>PhantomFox
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>ZeroByte
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>CodeWarrior
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>SilentHunter
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>DarkShadow
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>GhostRider
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>NightCrawler
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>IcePhoenix
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>PhantomByte
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>QuantumLeap
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>NeonSpecter
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>StormShadow
+            </div>
+            <div class="user">
+                <i class="fas fa-user"></i>ThunderStrike
+            </div>
+        </div>
     </div>
+
+    <script>
+        function showContent(section) {
+            let content = document.getElementById('section-content');
+
+            switch(section) {
+                case 'programare':
+                    content.innerHTML = `
+                        <h2>Programare</h2>
+                        <p>Programarea este procesul de scriere a codului sursă pentru a crea software sau aplicații. Este o disciplină vastă care include multe limbaje și paradigme, fiecare având propriile sale avantaje și utilizări. De exemplu, limbajele de programare precum Python, JavaScript, Java și C++ sunt utilizate pentru diferite scopuri, de la dezvoltarea web și aplicații mobile, până la software de sistem și programare embedded. Programarea implică concepte esențiale precum variabile, funcții, structuri de date și algoritmi. Acestea sunt fundamentale pentru dezvoltarea de software eficient și funcțional. În această secțiune, forumul nostru discută cele mai bune practici, tehnici avansate, framework-uri populare și resurse pentru a ajuta programatorii să își dezvolte abilitățile și să rezolve probleme complexe.</p>
+                    `;
+                    break;
+                case 'exploatari':
+                    content.innerHTML = `
+                        <h2>Exploitări</h2>
+                        <p>Exploitările sunt tehnici utilizate pentru a valorifica vulnerabilitățile din software sau sisteme pentru a obține acces neautorizat sau pentru a afecta funcționalitatea acestora. Acest domeniu al securității cibernetice este esențial pentru înțelegerea modului în care atacatorii pot compromite sistemele și pentru dezvoltarea de măsuri de apărare eficiente. Exploitările pot varia de la vulnerabilități de tip buffer overflow și SQL injection, până la atacuri mai sofisticate cum ar fi cross-site scripting (XSS) și vulnerabilități de tip zero-day.</p>
+                    `;
+                    break;
+                case 'securitate':
+                    content.innerHTML = `
+                        <h2>Securitate</h2>
+                        <p>Securitatea cibernetică este un domeniu crucial care se ocupă cu protejarea sistemelor informatice și a rețelelor împotriva atacurilor, accesului neautorizat, și altor amenințări. Acest domeniu include mai multe sub-domenii, cum ar fi securitatea rețelelor, securitatea aplicațiilor, securitatea informațiilor și managementul incidentelor de securitate.</p>
+                    `;
+                    break;
+                case 'criptografie':
+                    content.innerHTML = `
+                        <h2>Criptografie</h2>
+                        <p>Criptografia este știința și arta de a proteja informațiile prin transformarea lor într-un format ininteligibil pentru cei care nu au cheia corectă pentru a le decripta. Este un domeniu esențial pentru securitatea informațiilor, utilizat în comunicațiile securizate, stocarea datelor, și multe alte aplicații care necesită confidențialitate și integritate.</p>
+                    `;
+                    break;
+                case 'retele':
+                    content.innerHTML = `
+                        <h2>Rețele</h2>
+                        <p>Rețelele de calculatoare sunt grupuri de computere și alte dispozitive interconectate care comunică între ele. Rețelele permit partajarea de resurse, cum ar fi fișiere, imprimante, și conexiuni la internet. Conceptul de rețea include topologii, protocoale, și dispozitive care facilitează conectivitatea și transferul de date între calculatoare.</p>
+                    `;
+                    break;
+                case 'inteligenta-artificiala':
+                    content.innerHTML = `
+                        <h2>Inteligență Artificială</h2>
+                        <p>Inteligența Artificială (IA) este un domeniu al informaticii care se ocupă cu dezvoltarea de algoritmi și sisteme capabile să efectueze sarcini care, în mod normal, necesită inteligență umană. Aceasta include învățarea automată (machine learning), procesarea limbajului natural (NLP), recunoașterea imaginilor și multe altele. IA este folosită într-o varietate de aplicații, de la asistenți virtuali și traducerea automată, până la analiză predictivă și robotică avansată.</p>
+                    `;
+                    break;
+                case 'hacking-etica':
+                    content.innerHTML = `
+                        <h2>Hacking Etic</h2>
+                        <p>Hacking-ul etic implică utilizarea abilităților de hacking în mod legal și responsabil pentru a ajuta organizațiile să identifice și să remedieze vulnerabilitățile din sistemele lor informatice. Hacking-ul etic este o componentă crucială a securității cibernetice moderne, având scopul de a preveni atacurile și de a îmbunătăți securitatea.</p>
+                    `;
+                    break;
+                case 'anonimat':
+                    content.innerHTML = `
+                        <h2>Anonimat Online</h2>
+                        <p>Anonimatul online se referă la abilitatea unui utilizator de a-și ascunde identitatea reală în timp ce navighează pe internet. Acest lucru poate fi realizat prin diverse mijloace, cum ar fi utilizarea de VPN-uri, browsere speciale cum ar fi Tor, și alte tehnici de mascare a identității.</p>
+                    `;
+                    break;
+                case 'criptomonede':
+                    content.innerHTML = `
+                        <h2>Criptomonede</h2>
+                        <p>Criptomonedele sunt monede digitale sau virtuale care utilizează criptografia pentru securitate. Ele sunt, de obicei, descentralizate și funcționează pe baza tehnologiei blockchain, care este un registru distribuit ce asigură transparența și integritatea tranzacțiilor.</p>
+                    `;
+                    break;
+                case 'dark-web':
+                    content.innerHTML = `
+                        <h2>Dark Web</h2>
+                        <p>Dark Web-ul este o parte ascunsă a internetului care nu este indexată de motoarele de căutare și care necesită software special pentru acces, cum ar fi Tor. Dark Web-ul este cunoscut pentru faptul că găzduiește atât activități legale, cât și ilegale, și este adesea asociat cu piețe negre, forumuri de hacking și alte activități ilicite.</p>
+                    `;
+                    break;
+                case 'engineering-revers':
+                    content.innerHTML = `
+                        <h2>Engineering Revers</h2>
+                        <p>Engineering-ul revers este procesul de deconstrucție a unui produs sau software pentru a înțelege cum funcționează, pentru a reproduce sau pentru a analiza componentele acestuia. Această tehnică este adesea folosită în securitate pentru a identifica vulnerabilități în aplicații sau pentru a crea exploatații.</p>
+                    `;
+                    break;
+                case 'social-engineering':
+                    content.innerHTML = `
+                        <h2>Social Engineering</h2>
+                        <p>Social Engineering-ul este o tehnică de manipulare a oamenilor pentru a-i convinge să dezvăluie informații confidențiale sau să efectueze acțiuni care compromit securitatea. Acest tip de atac se bazează mai mult pe psihologia umană decât pe vulnerabilitățile tehnice și poate include tehnici cum ar fi phishing, pretexting și baiting.</p>
+                    `;
+                    break;
+                case 'blockchain':
+                    content.innerHTML = `
+                        <h2>Blockchain</h2>
+                        <p>Blockchain-ul este o tehnologie de registru distribuit care înregistrează tranzacțiile într-un mod transparent, securizat și imutabil. Aceasta este baza pentru criptomonede precum Bitcoin, dar are aplicații mult mai largi, inclusiv în contractele inteligente, votul electronic și gestionarea lanțurilor de aprovizionare.</p>
+                    `;
+                    break;
+                case 'osint':
+                    content.innerHTML = `
+                        <h2>OSINT</h2>
+                        <p>OSINT (Open Source Intelligence) se referă la colectarea și analiza informațiilor din surse publice disponibile. Aceasta include date din internet, mass-media, rețele sociale, și alte surse accesibile publicului. OSINT este utilizat pe scară largă în securitate, investigații și în alte domenii pentru a culege informații relevante și a crea profiluri.</p>
+                    `;
+                    break;
+                case 'hardware-hacking':
+                    content.innerHTML = `
+                        <h2>Hardware Hacking</h2>
+                        <p>Hardware hacking-ul implică modificarea sau exploatarea componentelor fizice ale dispozitivelor pentru a obține acces neautorizat, a modifica funcționarea acestora sau a adăuga noi funcționalități. Acest domeniu poate include modificarea consolelor de jocuri, routerelor, smartphone-urilor și altor echipamente electronice.</p>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = `<p>Selectați o categorie din meniul din stânga pentru a vedea detalii.</p>`;
+            }
+        }
+    </script>
 </body>
+
 </html>
